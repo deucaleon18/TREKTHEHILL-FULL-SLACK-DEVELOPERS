@@ -1,9 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-
 const User = require("./../models/User");
-
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
 const bcrypt = require("bcryptjs");
@@ -12,8 +10,6 @@ require("../auth/passport");
 
 const bodyParser = require("body-parser");
 router.use(bodyParser.json());
-
-
 
 
 router.use(function (req, res, next) {
@@ -26,7 +22,6 @@ router.use(function (req, res, next) {
   );
   next();
 });
-
 
 
 router.post("/register", async (req, res, next) => {
@@ -68,9 +63,6 @@ router.post("/register", async (req, res, next) => {
       console.log(err);
     });
 });
-
-
-
 
 
 

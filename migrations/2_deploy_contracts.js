@@ -1,5 +1,5 @@
-var SimpleStorage = artifacts.require("./SimpleStorage.sol");
+var Contractio = artifacts.require("./Contractio.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(SimpleStorage);
+  deployer.deploy(Contractio);
 };

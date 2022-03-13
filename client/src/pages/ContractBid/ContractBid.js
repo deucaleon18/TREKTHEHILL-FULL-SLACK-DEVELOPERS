@@ -1,88 +1,72 @@
-import React,{useState,useEffect} from 'react'
-import './ContractBid.css'
+import React, { useState, useEffect } from "react";
+import "./ContractBid.css";
 import { useParams } from "react-router-dom";
-import useBasicFetch from '../../hooks/useBasicFetch'
-import Modal from 'react-modal';
-
-
-
+import useBasicFetch from "../../hooks/useBasicFetch";
+import Modal from "react-modal";
 
 const ContractBid = () => {
-
-  
-
-  const [name,setName]=useState(undefined)
+  const [name, setName] = useState(undefined);
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [createdDate,setCreatedDate]=useState(undefined)
-  const [loading,setLoading]=useState(true)
-  const [baseAmount,setBaseAmount]=useState(undefined)
+  const [createdDate, setCreatedDate] = useState(undefined);
+  const [loading, setLoading] = useState(true);
+  const [baseAmount, setBaseAmount] = useState(undefined);
   const [sector, setSector] = useState("");
   const [desc, setDesc] = useState("");
   const [allocation, setAllocation] = useState("");
-  
-
 
   //For a new bid addition
-  const[newBidAmt,setNewBidAmt]=useState("")
-  const[newBidDesc,setNewBidDesc]=useState("")
- 
+  const [newBidAmt, setNewBidAmt] = useState("");
+  const [newBidDesc, setNewBidDesc] = useState("");
 
   // //Use the same variable predefined after " :"
   const { id } = useParams();
-  const [web3,account,contract,contractAddress]=useBasicFetch()
+  const [web3, account, contract, contractAddress] = useBasicFetch();
+
+
 
   
-
   const customStyles = {
     content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
     },
   };
-  
+
   function openModal() {
-    console.log("hello")
+    console.log("hello");
     setIsOpen(true);
   }
 
   function closeModal() {
     setIsOpen(false);
   }
-  
 
-
-
-
-  const addNewBid=async(e)=>{
-
+  const addNewBid = async (e) => {
     e.preventDefault();
     if (
       typeof contract !== "undefined" &&
       typeof account !== "undefined" &&
       typeof web3 !== "undefined"
     ) {
-
-      
       await contract.methods
-        .addBid(newBidDesc,newBidAmt,name,localStorage.getItem("username"))
+        .addBid(newBidDesc, newBidAmt, name, localStorage.getItem("username"))
         .send({
           from: account,
-          to: contract.options.address
+          to: contract.options.address,
         })
         .then((res) => {
           console.log(res);
-          window.location.href="/bid"
+          window.location.href = "/bid";
         })
         .catch((err) => {
           console.log(err);
         });
     }
-  }
-
+  };
 
   useEffect(() => {
     const getContractDetails = async () => {
@@ -92,11 +76,11 @@ const ContractBid = () => {
         .contracts(id)
         .call()
         .then((res) => {
-          setName(res.name)
-          setSector(res.sector)
-          setDesc(res.description)
-          setBaseAmount(res.baseAmount)
-          setAllocation(res.allocatedTo)
+          setName(res.name);
+          setSector(res.sector);
+          setDesc(res.description);
+          setBaseAmount(res.baseAmount);
+          setAllocation(res.allocatedTo);
           setCreatedDate(new Date(res.createdAt * 1000).toLocaleString());
 
           console.log(createdDate);
@@ -120,70 +104,66 @@ const ContractBid = () => {
     // eslint-disable-next-line
   }, [web3, account, contract]);
 
-
-
-
-
-
-
   return (
-    <div>
-    <h1>Contract-Details</h1>
+    <div className="container-main">
+      <h1 className="detail-header">Contract-Details</h1>
+      <div className="detail-card">
 
-    <h1>NAME:{name}</h1>
-    <h1>DESC:{desc} </h1>
-    <h1>SECTOR:{sector}  </h1>
-    <h1>BASE:{baseAmount} </h1>
-    <h1>ALLOCATION:{allocation}   </h1>
+  
+      <h1 className="detail-sides">NAME:{name}</h1>
+      <h1 className="detail-sides">DESC:{desc} </h1>
+      <h1 className="detail-sides">SECTOR:{sector} </h1>
+      <h1 className="detail-sides">BASE:{baseAmount} </h1>
+      <h1 className="detail-sides">ALLOCATION:{allocation} </h1>
+       
+      </div>
 
+      <button className="general-button" onClick={openModal}>
+        ADD A NEW BID NOW
+      </button>
 
-    <button onClick={openModal}>
-     ADD A NEW BID NOW
-    </button>
-
-
-    <Modal
+      <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="New Contract Addition"
       >
-
         <h2>Place your best bid here:</h2>
-        <button onClick={closeModal}>close</button>
+        <button className="general-button" onClick={closeModal}>
+          close
+        </button>
 
         <div>
-          <h3>
-           Description
-          </h3>
-          <input type="text" value={newBidDesc}
-          
-          onChange={(e)=>{
-            setNewBidDesc(e.target.value)
-          }}
-          
+          <h3>Description</h3>
+          <input
+            type="text"
+            value={newBidDesc}
+            onChange={(e) => {
+              setNewBidDesc(e.target.value);
+            }}
           ></input>
-
         </div>
         <div>
-          <h3>
-           Amount in ETH
-          </h3>
-          <input type="text" value={newBidAmt}
-          
-          onChange={(e)=>{
-            setNewBidAmt(e.target.value)
-          }}
-          
+          <h3>Amount in ETH</h3>
+          <input
+            type="text"
+            value={newBidAmt}
+            onChange={(e) => {
+              setNewBidAmt(e.target.value);
+            }}
           ></input>
+        </div>
 
-        </div> 
-
-        <button onClick={addNewBid}>BID NOW</button>
+        <button  className="general-button" onClick={addNewBid}>
+          BID NOW
+        </button>
       </Modal>
-
     </div>
-  )
-}
 
-export default ContractBid
+
+
+
+  );
+};
+
+export default ContractBid;

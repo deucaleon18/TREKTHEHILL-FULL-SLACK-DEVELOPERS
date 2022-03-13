@@ -3,14 +3,20 @@
     flex-wrap: wrap;
     align-items: center;
     width: 100vw;
+    padding:50px;
 }
 
 
 .single-contract{
+    margin:30px;
     width:200px;
     height:200px;
-    background-color:brown;
+    background-color:#0047DF;
     color: white;
     cursor:pointer;
     padding:10px;
+}
+
+.cover-image{
+    width:70%;
 }

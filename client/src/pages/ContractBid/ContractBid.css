@@ -1,0 +1,22 @@
+.container-main{
+    background-color:#011031;
+    height:90vh;
+}
+
+.detail-header{
+    margin:50px;
+    color:#0047DF;
+}
+.detail-sides{
+    margin:30px;
+    color:white;
+    font-size: 1.3rem;
+    font-weight:900;
+}
+
+.detail-card{
+    background-color:#0047DF;
+    border-radius: 8px;
+    width:30%;
+    margin:30px;
+}

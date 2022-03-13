@@ -2,8 +2,8 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <div>
-            
+        <div style={{color:"white",textAlign:"center"}}>
+           Made with love by the Full Slack Developers 
         </div>
     )
 }

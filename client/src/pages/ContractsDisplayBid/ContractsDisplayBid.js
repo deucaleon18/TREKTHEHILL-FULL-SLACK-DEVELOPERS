@@ -112,9 +112,9 @@ const ContractsDisplayBid = () => {
 
   return (
 
-    <div>
+    <div className='container-main'>
       <div>
-      <div>
+      <div className='side-headers'>
         Completed Contracts
       </div>
       <div className="all-contracts">
@@ -125,9 +125,10 @@ const ContractsDisplayBid = () => {
             className="single-contract"
             onClick={() => (window.location = `/bid/contracts/${contract.id}`)}
           >
-            <h1 >{contract.name}</h1>
-            <h1 >{contract.sector}</h1>
-            <h1 >{contract.baseAmount} ETH</h1>
+            <img src="/assets/contract2.svg" className="cover-image" ></img>
+            <h3 >NAME: {contract.name}</h3>
+            <h3 >SECTOR: {contract.sector}</h3>
+            <h3 >BASE AMOUNT: {contract.baseAmount} ETH</h3>
 
           </div>)
             }):null
@@ -136,7 +137,7 @@ const ContractsDisplayBid = () => {
       </div>
       </div>
       <div>
-      <div>
+      <div className='side-headers'>
         Incomplete Contracts
       </div>
       <div className="all-contracts">
@@ -147,9 +148,10 @@ const ContractsDisplayBid = () => {
       className="single-contract"
       onClick={() => (window.location = `/bid/contracts/${contract.id}`)}
     >
-      <h1 >{contract.name}</h1>
-      <h1 >{contract.sector}</h1>
-      <h1 >{contract.baseAmount} ETH</h1>
+          <img src="/assets/contract2.svg" className="cover-image" ></img>
+            <h3 >NAME: {contract.name}</h3>
+            <h3 >SECTOR: {contract.sector}</h3>
+            <h3 >BASE AMOUNT: {contract.baseAmount} ETH</h3>
     </div>)
 
       }):null

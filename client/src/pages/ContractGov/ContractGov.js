@@ -18,8 +18,6 @@ const ContractGov = () => {
   const [bids,setBids]=useState([])
 
 
-  
-
   // //Use the same variable predefined after " :"
   const { id } = useParams();
   const [web3,account,contract,contractAddress]=useBasicFetch()
@@ -28,6 +26,7 @@ const ContractGov = () => {
 
    await contract.methods.approveBid(bidSerial,id).send({from:account})
   .then(async(res) => {
+       window.location.href="/gov";
        console.log(res);
   })
 
@@ -118,21 +117,18 @@ const ContractGov = () => {
 
 
 
-
-
-
-
   return (
-    <div>
-    <h1>Contract-Details</h1>
+    <div className='container-main'>
+    <h1 className="detail-header">Contract-Details</h1>
+    <div className="detail-card">
 
-    <h1>NAME:{name}</h1>
-    <h1>DESC:{desc} </h1>
-    <h1>SECTOR:{sector}  </h1>
-    <h1>BASE:{baseAmount} </h1>
-    <h1>ALLOCATION:{allocation}   </h1>
-
-    <h1>BIDS:</h1>
+    <h1 className="detail-sides">NAME:{name}</h1>
+    <h1 className="detail-sides">DESC:{desc} </h1>
+    <h1 className="detail-sides">SECTOR:{sector}  </h1>
+    <h1 className="detail-sides">BASE:{baseAmount} </h1>
+    <h1 className="detail-sides">ALLOCATION:{allocation}   </h1>
+    </div>
+    <h1 className="detail-sides">BIDS:</h1>
 
     <div className='all-bids'>
      
@@ -143,7 +139,12 @@ const ContractGov = () => {
             <h1>DESCRIPTION:{bid.desc}</h1>
             <h1>AMOUNT:{bid.amount}</h1>
             <h1>BIDDER:{bid.bidder}</h1>
-            <button onClick={approveBid(bid.id)}>APPROVE BID</button>
+            <button className="general-button" 
+            
+            
+            onClick={()=>approveBid(bid.id)}
+            
+            > APPROVE BID</button>
           </div>
           
           )

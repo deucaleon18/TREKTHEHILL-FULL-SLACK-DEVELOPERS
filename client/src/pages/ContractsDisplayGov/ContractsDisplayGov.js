@@ -173,10 +173,10 @@ const ContractsDisplayGov = () => {
 
 
 
-    <div>
+    <div className='container-main'>
       
       <div>
-      <div>
+      <div className='side-headers'>
         Completed Contracts
       </div>
       <div className="all-contracts">
@@ -188,9 +188,10 @@ const ContractsDisplayGov = () => {
             className="single-contract"
             onClick={() => (window.location = `/gov/contracts/${contract.id}`)}
           >
-            <h1 >{contract.name}</h1>
-            <h1 >{contract.sector}</h1>
-            <h1 >{contract.baseAmount} ETH</h1>
+            <img src="/assets/contract2.svg" className="cover-image" ></img>
+            <h3 >NAME: {contract.name}</h3>
+            <h3 >SECTOR: {contract.sector}</h3>
+            <h3 >BASE AMOUNT: {contract.baseAmount} ETH</h3>
 
           </div>)
 
@@ -208,7 +209,7 @@ const ContractsDisplayGov = () => {
       </div>
 
       <div>
-      <div>
+      <div className='side-headers'>
         Incomplete Contracts
       </div>
 
@@ -221,9 +222,10 @@ const ContractsDisplayGov = () => {
       className="single-contract"
       onClick={() => (window.location = `/gov/contracts/${contract.id}`)}
     >
-      <h1 >{contract.name}</h1>
-      <h1 >{contract.sector}</h1>
-      <h1 >{contract.baseAmount} ETH</h1>
+         <img src="/assets/contract2.svg" className="cover-image" ></img>
+            <h3 >NAME: {contract.name}</h3>
+            <h3 >SECTOR: {contract.sector}</h3>
+            <h3 >BASE AMOUNT: {contract.baseAmount} ETH</h3>
     </div>)
 
 
@@ -242,7 +244,7 @@ const ContractsDisplayGov = () => {
 
 
 {/* Functionality to add a new contract  */}
-      <button onClick={openModal}>ADD NEW CONTRACT</button>
+      <button className="general-button" onClick={openModal}>ADD NEW CONTRACT</button>
       <Modal
         isOpen={modalIsOpen}
         // onAfterOpen={afterOpenModal}
@@ -251,7 +253,7 @@ const ContractsDisplayGov = () => {
         contentLabel="New Contract Addition"
       >
         <h2>Add a new contract here:</h2>
-        <button onClick={closeModal}>close</button>
+        <button className="general-button" onClick={closeModal}>close</button>
         <div>
           <h3>
            Name
@@ -303,7 +305,7 @@ const ContractsDisplayGov = () => {
 
         </div>
 
-        <button onClick={addNewContract}>ADD NOW</button>
+        <button className="general-button" onClick={addNewContract}>ADD NOW</button>
       </Modal>
 
 

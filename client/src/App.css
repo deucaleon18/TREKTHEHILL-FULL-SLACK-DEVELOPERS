@@ -3,11 +3,30 @@
     margin:0;
     box-sizing: border-box;
     overflow-x:hidden;
-    /* background-color: #2a2a72;
-    background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);; */
+    overflow-y:hidden;
 }
-/* :root{
 
+/* @font-face {
+    font-family: 'MyWebFont';
+    src:  url('myfont.woff2') format('woff2')
+  } */
 
+.general-button{
+    background-color:#0047DF;
+    color:white;
+    width:150px;
+    height:40px;
+    text-align: center;
+    padding:5px;
+    margin:30px;
+    border-radius:10px;
+    outline:none;
+    border:none;
+    cursor:pointer;
+}
 
-} */
+.general-button:hover{
+    transition:400ms ease-in-out;
+    background-color: white;
+    color:#0047DF;
+}

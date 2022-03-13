@@ -1,0 +1,21 @@
+.home-header1{
+    color:#0047DF;
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom:80px;
+}
+
+.home-header2{
+    color:white;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-top:30px;
+    margin-bottom:40px;
+}
+
+.home-header3{
+    color:white;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-top:10px;
+}

@@ -1,0 +1,16 @@
+.all-contracts{
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100vw;
+}
+
+
+.single-contract{
+    width:200px;
+    height:200px;
+    background-color:brown;
+    color: white;
+    cursor:pointer;
+    padding:10px;
+}

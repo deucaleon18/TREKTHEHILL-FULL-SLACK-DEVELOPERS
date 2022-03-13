@@ -1,0 +1,27 @@
+.all-contracts{
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100vw;
+}
+
+
+.single-contract{
+    border-radius:5px;
+    width:200px;
+    height:200px;
+    background-color:#0047DF;
+    color: white;
+    cursor:pointer;
+    padding:10px;
+    font-size: 0.7rem;
+    
+}
+
+.side-headers{
+    margin:50px;
+    color:white;
+    font-size: 2rem;
+    font-weight: 900;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

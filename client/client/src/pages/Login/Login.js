@@ -12,9 +12,6 @@ const Login = () => {
     const handleSubmit = async (event) => {
       event.preventDefault();
     
-
-
-      // const data = new FormData(event.currentTarget);
       // eslint-disable-next-line no-console
   
       await axios
@@ -28,17 +25,16 @@ const Login = () => {
           localStorage.setItem("username", res.data.user.username);
           localStorage.setItem("email", res.data.user.email);
           localStorage.setItem("admin", res.data.user.admin);
-          // localStorage.setItem("paymentAccount", res.data.user.paymentAccount);
   
         })
         .then(()=>{
+          if(!localStorage.getItem("admin")){
+            window.location.href = "/bid";
+           }
 
-          if(localStorage.getItem("admin")==true){
             window.location.href = "/gov";
-          }
-         else if(localStorage.getItem("admin")==false){
-          window.location.href = "/bid";
-         }
+        
+        
         })
         .catch((err) => {
           console.log(err);
@@ -46,17 +42,13 @@ const Login = () => {
 
     };
 
-
-
-
-
   return (
-    <div>
+    <div className='container-main'>
     <div className='header'>Login</div>
     <div className='login-page'>
    
     
-    <input type="text" className='input-field'
+    <input type="text" placeholder="Username" className='input-field'
      value={username}
      onChange={(e) => {
        setUsername(e.target.value);
@@ -64,14 +56,14 @@ const Login = () => {
     />
     <br/>
 
-    <input type="password"  className='input-field'
+    <input type="password" placeholder="Password" className='input-field'
      value={password}
      onChange={(e) => {
        setPassword(e.target.value);
      }}
      />
    
-    <button type="submit" onClick={handleSubmit} className='submit-buttons'>LOGIN</button>
+    <button className="general-button" type="submit" onClick={handleSubmit} >LOGIN</button>
     </div>
     </div>
   )

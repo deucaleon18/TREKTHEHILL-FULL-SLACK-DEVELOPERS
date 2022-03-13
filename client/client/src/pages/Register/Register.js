@@ -61,20 +61,13 @@ const Register = () => {
 
                 }
 
-      //           )
-      //           .catch((err)=>{
-      //             console.log(err)
-    
-      //           })
-                
-      // };
 
   return (
-    <div>
+    <div className='container-main'>
     <div className='header'>Register</div>
     <div className='register-page'>
    
-    <input type="text" className='input-field'
+    <input type="text" placeholder="Username"className='input-field'
     value={username}
     onChange={(e) => {
       setUsername(e.target.value);
@@ -83,7 +76,7 @@ const Register = () => {
     
     <br/>
     
-    <input type="text" className='input-field'
+    <input type="text" placeholder="Email address" className='input-field'
      value={email}
      onChange={(e) => {
        setEmail(e.target.value);
@@ -93,7 +86,7 @@ const Register = () => {
 
     <br/>
 
-    <input type="text"  className='input-field'
+    <input type="text"  placeholder="Password" className='input-field'
      value={password}
      onChange={(e) => {
        setPassword(e.target.value);
@@ -101,7 +94,7 @@ const Register = () => {
      />
    
 
-    <button type="submit" onClick={handleSubmit} className='submit-buttons'>REGISTER</button>
+    <button type="submit" onClick={handleSubmit} className="general-button">REGISTER</button>
     </div>
     </div>
 

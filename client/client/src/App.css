@@ -1,0 +1,32 @@
+*{  
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    overflow-x:hidden;
+    overflow-y:hidden;
+}
+
+/* @font-face {
+    font-family: 'MyWebFont';
+    src:  url('myfont.woff2') format('woff2')
+  } */
+
+.general-button{
+    background-color:#0047DF;
+    color:white;
+    width:150px;
+    height:40px;
+    text-align: center;
+    padding:5px;
+    margin:30px;
+    border-radius:10px;
+    outline:none;
+    border:none;
+    cursor:pointer;
+}
+
+.general-button:hover{
+    transition:400ms ease-in-out;
+    background-color: white;
+    color:#0047DF;
+}

@@ -48,7 +48,7 @@ const Routing = () => {
             )}
 
 
-           {localStorage.getItem("token") ? (
+           {localStorage.getItem("admin") ? (
               <Route exact path="/gov" element={<ContractsDisplayGov/>}></Route>
             ) : (
               <Route exact path="/gov" element={<Login/>}></Route>

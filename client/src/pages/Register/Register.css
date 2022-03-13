@@ -1,0 +1,42 @@
+.register-page{
+
+width:400px;
+margin:auto;
+margin-top:100px;
+height:500px; 
+border-radius: 5px;
+border:2px solid black;
+display: flex;
+flex-direction: column;
+align-items:center;
+}
+
+.header{
+    margin:auto;
+}
+
+.input-field{
+    margin-top:50px;
+    width:85%;
+    height:40px;
+}
+
+.submit-buttons{
+    
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
+    padding:10px;
+    margin-top:10px;
+    cursor: pointer;
+}
+
+.submit-buttons:hover{
+    cursor: pointer;
+    /* background-color:white ;
+    color: blue;
+    transition: 400ms ease-in-out; */
+}
+

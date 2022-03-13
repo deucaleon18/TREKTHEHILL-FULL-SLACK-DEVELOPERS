@@ -1,0 +1,12 @@
+.all-bids{
+    display: flex;
+    flex-direction: column;
+}
+
+.single-bid{
+    width:80%;
+    height:40px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
